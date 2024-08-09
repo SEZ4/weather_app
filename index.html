@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Weather</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5">
+        <meta name="description" content="">
+        <meta property="og:title" content="">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+        <meta property="og:description" content="">
+        <meta name="author" content="">
+        <meta name="robots" content="">
+
+        <link rel="icon" href="" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+        <link rel="canonical" href="https://sez4.github.io/index">
+
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="citys" style="margin: 10px;">
+            <p id="error" style="color: red;"></p>
+            <button id="search">search</button>
+            <input type="text" name="sarch input" id="input">
+            <button class="city-button">Amman</button>
+            <button class="city-button">London</button>
+            <button class="city-button">Cairo</button>
+            <button class="city-button">New york</button>
+            <button class="city-button">Makkah</button>
+        </div>
+        <div class="info" style="border: 1px solid black; padding: 10px;">
+            <h1>Weather Info</h1>
+            <button id="refresh">refresh</button>
+            <p id="city"></p>
+            <p id="country"></p>
+            <p id="time"></p>
+            <p id="weather"></p>
+            <p id="status"></p>
+            <p id="wind-dir"></p>
+            <p id="wind-speed"></p>
+            <p id="hu"></p>
+            <p id="uv"></p>
+        </div>
+        <h1>The Forecast</h1>
+        <div style="display: flex; padding: 10px; justify-content: space-around;">
+            <div class="forecast" style="border: 1px solid black; padding: 10px; margin-top: 10px;">
+                <p id="forecast-status-1"></p>
+                <p id="forecast-weather-1"></p>
+                <p id="forecast-wind-speed-1"></p>
+                <p id="forecast-time-1"></p>
+            </div>
+            <div class="forecast" style="border: 1px solid black; padding: 10px; margin-top: 10px;">
+                <p id="forecast-status-2"></p>
+                <p id="forecast-weather-2"></p>
+                <p id="forecast-wind-speed-2"></p>
+                <p id="forecast-time-2"></p>
+            </div>
+            <div class="forecast" style="border: 1px solid black; padding: 10px; margin-top: 10px;">
+                <p id="forecast-status-3"></p>
+                <p id="forecast-weather-3"></p>
+                <p id="forecast-wind-speed-3"></p>
+                <p id="forecast-time-3"></p>
+            </div>
+            <div class="forecast" style="border: 1px solid black; padding: 10px; margin-top: 10px;">
+                <p id="forecast-status-4"></p>
+                <p id="forecast-weather-4"></p>
+                <p id="forecast-wind-speed-4"></p>
+                <p id="forecast-time-4"></p>
+            </div>
+            <div class="forecast" style="border: 1px solid black; padding: 10px; margin-top: 10px;">
+                <p id="forecast-status-5"></p>
+                <p id="forecast-weather-5"></p>
+                <p id="forecast-wind-speed-5"></p>
+                <p id="forecast-time-5"></p>
+            </div>
+            <div class="forecast" style="border: 1px solid black; padding: 10px; margin-top: 10px;">
+                <p id="forecast-status-6"></p>
+                <p id="forecast-weather-6"></p>
+                <p id="forecast-wind-speed-6"></p>
+                <p id="forecast-time-6"></p>
+            </div>
+        </div>
+ 
+    </body>
+</html>
