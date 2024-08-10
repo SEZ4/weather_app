@@ -23,6 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
             forecastGetData();
         }
     })
+    input.addEventListener('keydown', function(button) {
+        if(button.key === 'Enter'){
+            console.log('Enter enter')
+            if(input.vlaue === ''){
+                return;
+            } else{
+                city_button = input.value;
+                getData();
+                forecastGetData();
+            }
+        } else{
+            return;       
+        }
+    })
 
     function getData(){
         fetch(`https://api.weatherapi.com/v1/current.json?key=fbb0702d04e54943826133310240308&q=${city_button}`)
