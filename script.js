@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const city_buttons = document.querySelectorAll('.city-button');
     const input = document.getElementById('input');
     const input_button = document.getElementById('search');
+    const add_button = document.getElementById('plus-button');
+    const add_input = document.getElementById('add-input');
 
     let city_button = 'Amman';
 
@@ -67,14 +69,23 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('uv').innerHTML = data.current.uv;
     }
 
+    add_button.addEventListener('click', function(){
+        add_input.style.display = 'inline';
+        let bool;
+        if(bool === true){
+            bool = false;
+            add_button.style.display = 'none';
+        }
+        bool = true;
+    })
+
+
+
     function forecastGetData(){
         fetch(`https://api.weatherapi.com/v1/forecast.json?key=fbb0702d04e54943826133310240308&q=${city_button}&days=7&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((forecastData) => forecastShowData(forecastData))
     }
-
-
-
     function forecastShowData(data){
         for(let reNum = 1; reNum < 7; reNum++){
             document.getElementById(`forecast-status-${reNum}`).innerHTML = data.forecast.forecastday[reNum].hour[12].condition.text;
