@@ -70,15 +70,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     add_button.addEventListener('click', function(){
-        add_input.style.display = 'inline';
-        let bool;
-        if(bool === true){
-            bool = false;
-            add_button.style.display = 'none';
-        }
-        bool = true;
+        add_input.classList.toggle('add-input-toggle');
+        add_input.classList.toggle('add-input');
     })
-
+    add_input.addEventListener('keydown', function(button) {
+        if(button.key === 'Enter'){
+            console.log('button bdjxf')
+            const new_button = document.createElement('button');
+            new_button.classList.add('city-button');
+            const currentDiv = document.querySelector('.citys');
+            new_button.innerHTML = add_input.value;
+            document.body.insertBefore(new_button, currentDiv);
+        } else{
+            return;
+        }
+    })
 
 
     function forecastGetData(){
