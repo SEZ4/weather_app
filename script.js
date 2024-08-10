@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const city_buttons = document.querySelectorAll('.city-button');
     const input = document.getElementById('input');
     const input_button = document.getElementById('search');
-    const add_button = document.getElementById('plus-button');
-    const add_input = document.getElementById('add-input');
 
     let city_button = 'Amman';
 
@@ -68,23 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('hu').innerHTML = data.current.humidity;
         document.getElementById('uv').innerHTML = data.current.uv;
     }
-
-    add_button.addEventListener('click', function(){
-        add_input.classList.toggle('add-input-toggle');
-        add_input.classList.toggle('add-input');
-    })
-    add_input.addEventListener('keydown', function(button) {
-        if(button.key === 'Enter'){
-            console.log('button bdjxf')
-            const new_button = document.createElement('button');
-            new_button.classList.add('city-button');
-            const currentDiv = document.querySelector('.citys');
-            new_button.innerHTML = add_input.value;
-            document.body.insertBefore(new_button, currentDiv);
-        } else{
-            return;
-        }
-    })
 
 
     function forecastGetData(){
