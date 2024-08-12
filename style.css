@@ -1,10 +1,17 @@
 body{
-  background-color: #2B2B2B;
+  background-color: #1A1A1A;
 }
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+:root{
+    --mainColor: #1A1A1A;
+    --cardBackgroundColor: #2f2f2f;
+    --mainTextColor: #e0e0e0;
+    --seconderyTextColor: #b3b3b3;
+    --bordersColor: #696969;
 }
 
 .main{
@@ -22,12 +29,15 @@ body{
     border-radius: 16px;
     width: fit-content;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: #2F2F2F;
     backdrop-filter: blur(10px);
 }
 .cityButton-search > input{
     padding: 0 10px;
     border: none;
+    background-color: #2F2F2F;
+    color: #E0E0E0;
+    font-size: 20px;
 }
 .cityButton-search > input:focus-visible{
     outline: none;
