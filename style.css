@@ -1,0 +1,14 @@
+body{
+
+}
+*{
+    box-sizing: border-box;
+}
+
+.main{
+    display: flex;
+}
+.cityButton{
+    display: flex;
+    flex-direction: column;
+}
