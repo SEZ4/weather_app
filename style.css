@@ -1,14 +1,59 @@
 body{
-
+  background-color: #2B2B2B;
 }
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .main{
     display: flex;
+    width: 100%;
 }
 .cityButton{
     display: flex;
     flex-direction: column;
+    width: 30%;
+    padding: 10px;
+}
+.cityButton-search{
+    display: flex;
+    border-radius: 16px;
+    width: fit-content;
+    padding: 10px;
+    background-color: #FFFFFF;
+    backdrop-filter: blur(10px);
+}
+.cityButton-search > input{
+    padding: 0 10px;
+    border: none;
+}
+.cityButton-search > input:focus-visible{
+    outline: none;
+}
+.cityButton-search > button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.cityButton-search > button:hover{
+    background-color: #646464;
+}
+.cityButton-search > button > img{
+    width: 30px;
+    height: auto;
+}
+
+.cityButton > button{
+    margin: 10px 0;
+    background-color: #FFFFFF;
+    opacity: 15%;
+    backdrop-filter: blur(10px);
+    border: none;
+    cursor: pointer;
+    display: flex; 
+}
+.cityButton > button > p{
+    color: #E0E0E0;
 }
