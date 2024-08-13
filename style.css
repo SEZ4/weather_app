@@ -23,32 +23,39 @@ body{
     flex-direction: column;
     width: 30%;
     padding: 10px;
+    
 }
 .cityButton-search{
     display: flex;
-    border-radius: 16px;
-    width: fit-content;
-    padding: 10px;
-    background-color: #2F2F2F;
+    border-radius: 25px;
+    max-width: 350px;
+    width: 100%;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: var(--cardBackgroundColor);
     backdrop-filter: blur(10px);
 }
 .cityButton-search > input{
     padding: 0 10px;
     border: none;
-    background-color: #2F2F2F;
-    color: #E0E0E0;
-    font-size: 20px;
+    background-color: var(--cardBackgroundColor);
+    color: var(--mainTextColor);
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
 }
 .cityButton-search > input:focus-visible{
     outline: none;
+    border: 1px solid var(--bordersColor);
 }
 .cityButton-search > button{
     border: none;
     background-color: transparent;
     cursor: pointer;
-}
-.cityButton-search > button:hover{
-    background-color: #646464;
+    margin-left: 5px;
+    border-radius: 25px;
 }
 .cityButton-search > button > img{
     width: 30px;
@@ -57,13 +64,23 @@ body{
 
 .cityButton > button{
     margin: 10px 0;
-    background-color: #FFFFFF;
-    opacity: 15%;
-    backdrop-filter: blur(10px);
     border: none;
     cursor: pointer;
     display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cardBackgroundColor);
+    border-radius: 16px;
+    padding: 10px;
+    width: 100%;
+    max-width: 425px;
+}
+.cityButton > button > img{
+    width: 75px;
+    height: auto;
 }
 .cityButton > button > p{
-    color: #E0E0E0;
+    color: var(--mainTextColor);
+    font-size: 32px;
+    margin: 0 auto;
 }
