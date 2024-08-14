@@ -80,13 +80,13 @@ nav > a > img{
     justify-content: space-between;
     background-color: var(--cardBackgroundColor);
     border-radius: 16px;
-    padding: 10px;
+    padding: 5px;
     width: 100%;
     max-width: 425px;
-    height: auto;
+    height: 85px;
 }
 .cityButton > button > img{
-    width: 75px;
+    width: 65px;
     height: auto;
 }
 .cityButton > button > p{
