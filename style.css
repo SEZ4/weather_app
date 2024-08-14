@@ -12,6 +12,8 @@ body{
     --mainTextColor: #e0e0e0;
     --seconderyTextColor: #b3b3b3;
     --bordersColor: #696969;
+    --activeElements: #4A90E2;
+    --postiveColor: #2ECC71;
 }
 
 nav{
@@ -31,6 +33,7 @@ nav > a > img{
     display: flex;
     flex-direction: column;
     width: 30%;
+    max-width: 500px;
     padding: 10px;
     
 }
@@ -80,7 +83,7 @@ nav > a > img{
     justify-content: space-between;
     background-color: var(--cardBackgroundColor);
     border-radius: 16px;
-    padding: 5px;
+    padding: 5px 10px;
     width: 100%;
     max-width: 425px;
     height: 85px;
@@ -93,4 +96,25 @@ nav > a > img{
     color: var(--mainTextColor);
     font-size: 32px;
     margin: 0 auto;
+}
+
+.cityInfo{
+    background-color: var(--cardBackgroundColor);
+    border-radius: 16px;
+    width: 65%;
+}
+.cityInfo-header{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.cityInfo-header > img{
+    width: 150px;
+    height: auto;
+}
+.cityInfo-header > p{
+    color: var(--mainTextColor);
+    font-size: 38px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 10px;
 }
