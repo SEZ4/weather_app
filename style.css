@@ -150,6 +150,7 @@ nav > a > img{
     width: 50px;
     height: auto;
 }
+.cityInfo-misc,
 .cityInfo-wind,
 .cityInfo-current{
     padding: 10px;
