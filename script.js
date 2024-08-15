@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Defining Buttons and Inputs for citis Names
+    const searchCityInput = document.getElementById('search-city-input');
+    const searchCityButton = document.getElementById('search-city-button');
+    const cityButtonsName = document.querySelectorAll('.city-button-name');
+
+
+
+
+
+
+
+
     const refresh = document.getElementById('refresh');
     const city_buttons = document.querySelectorAll('.city-button');
     const input = document.getElementById('input');
