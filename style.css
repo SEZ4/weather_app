@@ -150,6 +150,7 @@ nav > a > img{
     width: 50px;
     height: auto;
 }
+.cityInfo-forecast,
 .cityInfo-misc,
 .cityInfo-wind,
 .cityInfo-current{
@@ -157,6 +158,7 @@ nav > a > img{
     margin-top: 10px;
     border-top: 1px dotted var(--bordersColor);
 }
+.cityInfo-forecast > h2,
 .cityInfo-wind > h2,
 .cityInfo-current > h2{
     color: var(--mainTextColor);
@@ -220,6 +222,30 @@ nav > a > img{
     margin: 0 auto;
 }
 
+.cityInfo-forecast > div{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.cityInfo-forecast-day{
+    background-color: var(--bordersColor);
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    width: 100%;
+}
+.cityInfo-forecast-day > img{
+    width: 80px;
+    height: auto;
+}
+.cityInfo-forecast-day > p{
+    color: #FFF;
+    font-size: 30px;
+    margin: 10px 0;
+}
 
 
 
