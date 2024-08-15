@@ -114,11 +114,11 @@ nav > a > img{
     display: flex;
     align-items: center;
 }
-.cityInfo-header > div > img{
+.cityInfo-header-info > img{
     width: 125px;
     height: auto;
 }
-.cityInfo-header > div > p{
+.cityInfo-header-info > p{
     color: var(--mainTextColor);
     font-size: 38px;
     margin: 0 20px;
@@ -127,7 +127,7 @@ nav > a > img{
     color: var(--activeElements) !important;
     font-size: 50px !important;
 }
-.cityInfo-header > button{
+.cityInfo-header-button > button{
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -140,16 +140,17 @@ nav > a > img{
     justify-content: center;
     transition: background-color 100ms ease-in-out;
 }
-.cityInfo-header > button:hover{
+.cityInfo-header-button > button:hover{
     background-color: var(--bordersColor);
 }
-.cityInfo-header > button:active{
+.cityInfo-header-button > button:active{
     background-color: transparent;
 }
-.cityInfo-header > button > img{    
+.cityInfo-header-button > button > img{    
     width: 50px;
     height: auto;
 }
+
 .cityInfo-forecast,
 .cityInfo-misc,
 .cityInfo-wind,
