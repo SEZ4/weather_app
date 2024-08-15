@@ -1,5 +1,6 @@
 body{
   background-color: #1A1A1A;
+  font-family: Arial, Helvetica, sans-serif;
 }
 *{
     box-sizing: border-box;
@@ -109,12 +110,66 @@ nav > a > img{
     padding: 10px;
 }
 .cityInfo-header > img{
-    width: 150px;
+    width: 125px;
     height: auto;
 }
 .cityInfo-header > p{
     color: var(--mainTextColor);
     font-size: 38px;
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0 10px;
 }
+.cityInfo-header-cityName{
+    color: var(--activeElements) !important;
+    font-size: 50px !important;
+}
+.cityInfo-wind,
+.cityInfo-current{
+    padding: 10px;
+    margin-top: 10px;
+    border-top: 1px dotted var(--bordersColor);
+}
+.cityInfo-wind > h2,
+.cityInfo-current > h2{
+    color: var(--mainTextColor);
+    font-size: 48px;
+}
+.cityInfo-current > div{
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+}
+.cityInfo-current > div > p{
+    color: var(--seconderyTextColor);
+    font-size: 45px;
+}
+.cityInfo-current > div > div{
+    display: flex;
+    align-items: center;
+    color: var(--seconderyTextColor);
+    font-size: 45px;
+    margin: 0 auto;
+}
+.cityInfo-current > div > div > img{
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
