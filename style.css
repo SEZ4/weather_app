@@ -107,20 +107,45 @@ nav > a > img{
 .cityInfo-header{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 10px;
 }
-.cityInfo-header > img{
+.cityInfo-header > div{
+    display: flex;
+    align-items: center;
+}
+.cityInfo-header > div > img{
     width: 125px;
     height: auto;
 }
-.cityInfo-header > p{
+.cityInfo-header > div > p{
     color: var(--mainTextColor);
     font-size: 38px;
-    margin: 0 10px;
+    margin: 0 20px;
 }
 .cityInfo-header-cityName{
     color: var(--activeElements) !important;
     font-size: 50px !important;
+}
+.cityInfo-header > button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 64px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 100ms ease-in-out;
+}
+.cityInfo-header > button:hover{
+    background-color: var(--bordersColor);
+}
+.cityInfo-header > button > img{    
+    width: 50px;
+    height: auto;
 }
 .cityInfo-wind,
 .cityInfo-current{
@@ -141,6 +166,7 @@ nav > a > img{
 .cityInfo-current > div > p{
     color: var(--seconderyTextColor);
     font-size: 45px;
+    position: relative;
 }
 .cityInfo-current > div > div{
     display: flex;
@@ -149,12 +175,33 @@ nav > a > img{
     font-size: 45px;
     margin: 0 auto;
 }
+
+.cityInfo-wind > div > div > img,
 .cityInfo-current > div > div > img{
     width: 100px;
     height: auto;
     margin-right: 20px;
+    transition: rotate 150ms ease-in-out;
 }
 
+.cityInfo-wind > div{
+    display: flex;
+    align-items: center;
+}
+.cityInfo-wind > div > div{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.cityInfo-wind > div > div > p{
+    color: var(--mainTextColor);
+    font-size: 45px;
+}
+.cityInfo-wind > div > p{
+    color: var(--mainTextColor);
+    font-size: 45px;
+    margin: 0 auto;
+}
 
 
 
