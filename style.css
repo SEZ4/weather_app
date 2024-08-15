@@ -143,6 +143,9 @@ nav > a > img{
 .cityInfo-header > button:hover{
     background-color: var(--bordersColor);
 }
+.cityInfo-header > button:active{
+    background-color: transparent;
+}
 .cityInfo-header > button > img{    
     width: 50px;
     height: auto;
