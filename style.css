@@ -168,14 +168,14 @@ nav > a > img{
     align-items: center;
 }
 .cityInfo-current > div > p{
-    color: var(--seconderyTextColor);
+    color: var(--mainTextColor);
     font-size: 45px;
     position: relative;
 }
 .cityInfo-current > div > div{
     display: flex;
     align-items: center;
-    color: var(--seconderyTextColor);
+    color: var(--mainTextColor);
     font-size: 45px;
     margin: 0 auto;
 }
@@ -204,6 +204,19 @@ nav > a > img{
 .cityInfo-wind > div > p{
     color: var(--mainTextColor);
     font-size: 45px;
+    margin: 0 auto;
+}
+
+.cityInfo-misc{
+    display: flex;
+    align-items: center;
+}
+.cityInfo-misc > p{
+    margin-top: 20px; 
+    font-size: 45px;
+    color: var(--mainTextColor);
+}
+.cityInfo-misc-uv{
     margin: 0 auto;
 }
 
