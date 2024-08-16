@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+    // You can steal the API key I don't mind :)
+    const weatheAPIkey = 'fbb0702d04e54943826133310240308';
     // Defining Buttons and Inputs for citis Names
     const searchCityInput = document.getElementById('search-city-input');
     const searchCityButton = document.getElementById('search-city-button');
@@ -35,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             let buttonChild = button.children[1];
             cityValueName = buttonChild.innerHTML;
+            dataFetchCurrent();
+            dataFectchForecast();
         })
     })
     searchCityButton.addEventListener('click', function() {
@@ -42,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         } else {
             cityValueName = searchCityInput.value;
+            dataFetchCurrent();
+            dataFectchForecast();
         }
     })
     searchCityInput.addEventListener('keydown', function(button) {
@@ -50,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             } else {
                 cityValueName = searchCityInput.value;
+                dataFetchCurrent();
+                dataFectchForecast();
             }
         } else {
             return;
@@ -59,15 +66,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // fetch data from the API
 
     function dataFetchCurrent(){
-        fetch(`https://api.weatherapi.com/v1/current.json?key=fbb0702d04e54943826133310240308&q=${cityValueName}`)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=${weatheAPIkey}&q=${cityValueName}`)
             .then((response) => response.json)
-            .then((data) => currentDataHandelr(data))
-            .catch(() => errorMessage());
+            .then((data) => currentDataOutput(data));
+            //.catch(() => errorMessage());
     }
-    function dataFectchForecast(){
-        fetch(`https://api.weatherapi.com/v1/forecast.json?key=fbb0702d04e54943826133310240308&q=${city_button}&days=7&aqi=no&alerts=no`)
+    /*function dataFectchForecast(){
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${weatheAPIkey}&q=${city_button}&days=7&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((forecastData) => forecastDataHandelr(forecastData));
+    } */ 
+
+    //  Output data to HTML
+
+    function currentDataOutput(data){
+        cityName.innerHTML = data.location.name;
+        document.getElementById('country').innerHTML = data.location.country;
+        document.getElementById('time').innerHTML = data.location.localtime;
+        document.getElementById('weather').innerHTML = `Temp ${data.current.temp_c} C`;
+        document.getElementById('status').innerHTML = data.current.condition.text;
+        document.getElementById('wind-dir').innerHTML = data.current.wind_dir;
+        document.getElementById('wind-speed').innerHTML = `${data.current.wind_kph} Km/H`;
+        document.getElementById('hu').innerHTML = data.current.humidity;
+        document.getElementById('uv').innerHTML = data.current.uv;
     }
 
     const refresh = document.getElementById('refresh');
@@ -84,59 +105,10 @@ document.addEventListener('DOMContentLoaded', function() {
             forecastGetData();
         })
     })
-    input_button.addEventListener('click', function() {
-        if(input.value === ''){
-            return;
-        } else{
-            city_button = input.value;
-            getData();
-            forecastGetData();
-        }
-    })
-    input.addEventListener('keydown', function(button) {
-        if(button.key === 'Enter'){
-            console.log('Enter enter')
-            if(input.vlaue === ''){
-                return;
-            } else{
-                city_button = input.value;
-                getData();
-                forecastGetData();
-            }
-        } else{
-            return;       
-        }
-    })
-
-    function errorCity(){
-        document.getElementById('error').innerHTML = `Can't find City!`;
-    }
-    getData();
-    forecastGetData();
-    refresh.addEventListener('click', function() {
-        getData();
-        forecastGetData();
-    })
-
-    function showData(data){
-        document.getElementById('error').innerHTML = ``;
-        document.getElementById('city').innerHTML = data.location.name;
-        document.getElementById('country').innerHTML = data.location.country;
-        document.getElementById('time').innerHTML = data.location.localtime;
-        document.getElementById('weather').innerHTML = `Temp ${data.current.temp_c} C`;
-        document.getElementById('status').innerHTML = data.current.condition.text;
-        document.getElementById('wind-dir').innerHTML = data.current.wind_dir;
-        document.getElementById('wind-speed').innerHTML = `${data.current.wind_kph} Km/H`;
-        document.getElementById('hu').innerHTML = data.current.humidity;
-        document.getElementById('uv').innerHTML = data.current.uv;
-    }
+ 
 
 
-    function forecastGetData(){
-        fetch(`https://api.weatherapi.com/v1/forecast.json?key=fbb0702d04e54943826133310240308&q=${city_button}&days=7&aqi=no&alerts=no`)
-            .then((response) => response.json())
-            .then((forecastData) => forecastShowData(forecastData))
-    }
+
     function forecastShowData(data){
         for(let reNum = 1; reNum < 7; reNum++){
             document.getElementById(`forecast-status-${reNum}`).innerHTML = data.forecast.forecastday[reNum].hour[12].condition.text;
