@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const countryName = document.getElementById('country-name');
     const cityTime = document.getElementById('city-time');
     const cityDate = document.getElementById('city-date');
+    // Tools Button 
     const mapButton = document.getElementById('map-button');
     const refreshButton = document.getElementById('refresh-button');
     // Defining Current temp info
@@ -24,9 +25,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const humidity = document.getElementById('humidity');
     const uvLight = document.getElementById('uv-light');
 
+    let cityValueName = 'Amman';
 
+    // Getting the City name value
 
-
+    cityButtonsName.forEach(function(button) {
+        button.addEventListener('click', function() {
+            let buttonChild = button.children[1];
+            cityValueName = buttonChild.innerHTML;
+        })
+    })
+    searchCityButton.addEventListener('click', function() {
+        if(searchCityInput.vlaue === ''){
+            return;
+        } else {
+            cityValueName = searchCityInput.value;
+        }
+    })
+    searchCityInput.addEventListener('keydown', function(button) {
+        if(button.key === 'Enter'){
+            if(searchCityInput.value === ''){
+                return;
+            } else {
+                cityValueName = searchCityInput.value;
+            }
+        } else {
+            return;
+        }
+    })
 
 
     const refresh = document.getElementById('refresh');
