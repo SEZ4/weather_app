@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchCityInput = document.getElementById('search-city-input');
     const searchCityButton = document.getElementById('search-city-button');
     const cityButtonsName = document.querySelectorAll('.city-button-name');
+    // Defining Error Handelrs
+    const ErrorText = document.getElementById('search-error');
     // Defining Ctity Info header
     const cityDayStatus = document.getElementById('day-status');
     const cityName = document.getElementById('city-name');
@@ -54,6 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 
+    // fetch data from the API
+
+    function dataFetchCurrent(){
+        fetch(`https://api.weatherapi.com/v1/current.json?key=fbb0702d04e54943826133310240308&q=${cityValueName}`)
+            .then((response) => response.json)
+            .then((data) => currentDataHandelr(data))
+            .catch(() => errorMessage());
+    }
+    function dataFectchForecast(){
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=fbb0702d04e54943826133310240308&q=${city_button}&days=7&aqi=no&alerts=no`)
+            .then((response) => response.json())
+            .then((forecastData) => forecastDataHandelr(forecastData));
+    }
 
     const refresh = document.getElementById('refresh');
     const city_buttons = document.querySelectorAll('.city-button');
@@ -93,12 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 
-    function getData(){
-        fetch(`https://api.weatherapi.com/v1/current.json?key=fbb0702d04e54943826133310240308&q=${city_button}`)
-            .then((response) => response.json())
-            .then((data) => showData(data))
-            .catch(() => errorCity());
-    }
     function errorCity(){
         document.getElementById('error').innerHTML = `Can't find City!`;
     }
