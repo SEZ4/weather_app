@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Defining Wind info
     const windDirImg = document.getElementById('wind-dir-img');
     const windDir = document.getElementById('wind-dir');
+    const windSpeed = document.getElementById('wind-speed');
+    // Defining Misc info
+    const humidity = document.getElementById('humidity');
+    const uvLight = document.getElementById('uv-light');
 
 
 
