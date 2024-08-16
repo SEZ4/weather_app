@@ -4,8 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchCityInput = document.getElementById('search-city-input');
     const searchCityButton = document.getElementById('search-city-button');
     const cityButtonsName = document.querySelectorAll('.city-button-name');
-
-
+    // Defining Ctity Info header
+    const cityDayStatus = document.getElementById('day-status');
+    const cityName = document.getElementById('city-name');
+    const countryName = document.getElementById('country-name');
+    const cityTime = document.getElementById('city-time');
+    const cityDate = document.getElementById('city-date');
+    const mapButton = document.getElementById('map-button');
+    const refreshButton = document.getElementById('refresh-button');
+    // Defining Current temp info
+    const currentTemp = document.getElementById('current-temp');
+    const weatherStatusImg = document.getElementById('weather-status-img');
+    const weatherStatus = document.getElementById('weather-status');
+    // Defining Wind info
+    const windDirImg = document.getElementById('wind-dir-img');
+    const windDir = document.getElementById('wind-dir');
 
 
 

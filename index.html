@@ -60,23 +60,23 @@
                 <div class="cityInfo-header">
                     <div class="cityInfo-header-info">
                         <img src="imges/day/day.png" alt="night day" id="day-status">
-                        <p class="cityInfo-header-cityName">Amman</p>
-                        <p>Jordan</p>
-                        <p>8:00 AM</p>
-                        <p>1/8/2024</p>
+                        <p class="cityInfo-header-cityName" id="city-name">Amman</p>
+                        <p id="country-name">Jordan</p>
+                        <p id="city-time">8:00 AM</p>
+                        <p id="city-date">1/8/2024</p>
                     </div>
                     <div class="cityInfo-header-button">
-                        <button name="The Map Button"><img src="imges/map.png"></button>
-                        <button name="The refresh Button"><img src="imges/refresh-arrow.png"></button>
+                        <button name="The Map Button" id="map-button"><img src="imges/map.png"></button>
+                        <button name="The refresh Button" id="refresh-button"><img src="imges/refresh-arrow.png"></button>
                     </div>
                 </div> 
                 <div class="cityInfo-current">
                     <h2>Current</h2>
                     <div>
-                        <p>24 C</p>
+                        <p id="current-temp">24 C</p>
                         <div>
-                            <img src="imges/status/cloudy.png">
-                            <p>ParltyCloudy</p>
+                            <img src="imges/status/cloudy.png" id="weather-status-img">
+                            <p id="weather-status">ParltyCloudy</p>
                         </div>
                     </div>
                 </div>
@@ -84,15 +84,15 @@
                     <h2>Wind</h2>
                     <div>
                         <div>
-                            <img src="imges/wind-arrow.png" alt="arrow">
-                            <p>west east</p>
+                            <img src="imges/wind-arrow.png" alt="arrow" id="wind-dir-img">
+                            <p id="wind-dir">west east</p>
                         </div>
-                        <p>5 Km/h</p>
+                        <p id="wind-speed">5 Km/h</p>
                     </div>
                 </div>
                 <div class="cityInfo-misc">
-                    <p>Humidity: 39</p>
-                    <p class="cityInfo-misc-uv">UV levels: 7.0</p>
+                    <p id="humidity">Humidity: 39</p>
+                    <p class="cityInfo-misc-uv" id="uv-light">UV levels: 7.0</p>
                 </div>
                 <div class="cityInfo-forecast">
                     <h2>Forecast</h2>
