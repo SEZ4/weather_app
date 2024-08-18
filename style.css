@@ -74,6 +74,11 @@ nav > a > img{
     width: 30px;
     height: auto;
 }
+.cityButton-search > p{
+    color: #e10000;
+    text-align: center;
+    font-weight: 600;
+}
 
 .cityButton > button{
     margin: 10px 0;

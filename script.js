@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let cityValueName = 'Amman';
 
-    // Getting the City name value
+    // excuting the fetch function
 
     cityButtonsName.forEach(function(button) {
         button.addEventListener('click', function() {
@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
     })
+    refreshButton.addEventListener('click', function(){
+        dataFetchCurrent();
+        dataFectchForecast();
+    })
     dataFetchCurrent();
     dataFectchForecast();
 
@@ -70,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function dataFetchCurrent(){
         fetch(`https://api.weatherapi.com/v1/current.json?key=${weatheAPIkey}&q=${cityValueName}&aqi=no&alerts=no`)
             .then((response) => response.json())
-            .then((data) => currentDataOutput(data));
-            //.catch(() => errorMessage());
+            .then((data) => currentDataOutput(data))
+            .catch(() => errorMessage());
     }
     function dataFectchForecast(){
         fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatheAPIkey}&q=${cityValueName}&days=7&aqi=no&alerts=no`)
@@ -82,15 +86,22 @@ document.addEventListener('DOMContentLoaded', function() {
     //  Output data to HTML
 
     function currentDataOutput(data){
+        ErrorText.innerHTML = ''
         cityName.innerHTML = data.location.name;
         countryName.innerHTML = data.location.country;
-        cityTime.innerHTML = data.location.localtime;
+        let [date, time] = data.location.localtime.split(' ');
+        cityTime.innerHTML = time;
+        date = date.replace(/-/g, '/');
+        date = date.replace(/\b0/g, '');
+        cityDate.innerHTML = date;
         currentTemp.innerHTML = `${data.current.temp_c} C`;
         weatherStatus.innerHTML = data.current.condition.text;
         windDir.innerHTML = data.current.wind_dir;
         windSpeed.innerHTML = `${data.current.wind_kph} Km/H`;
         humidity.innerHTML = `Humidity: ${data.current.humidity}`;
         uvLight.innerHTML = `UV Light: ${data.current.uv}`;
+        // Images
+        dayNightIdentifier(time);
     }
 
     function forecastDataHandelr(data){
@@ -102,4 +113,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function errorMessage(){
+        ErrorText.innerHTML = 'City Not Found!'
+    }
+
+    // Logical Operations
+
+    function dayNightIdentifier(time){
+        let numTime = time.slice(0, 2);
+        numTime = parseInt(numTime, 10);
+        if (numTime >= 20){
+            cityDayStatus.setAttribute('src', 'imges/day/night.png')
+        } else if (numTime < 6){
+            cityDayStatus.setAttribute('src', 'imges/day/night.png')
+        } else if (numTime >= 6){
+            cityDayStatus.setAttribute('src', 'imges/day/day.png')
+        }
+    }
 })
