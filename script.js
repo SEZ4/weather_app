@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //.catch(() => errorMessage());
     }
     function dataFectchForecast(){
-        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${weatheAPIkey}&q=${cityValueName}&days=7&aqi=no&alerts=no`)
+        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatheAPIkey}&q=${cityValueName}&days=7&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((data) => forecastDataHandelr(data));
     }
@@ -93,42 +93,13 @@ document.addEventListener('DOMContentLoaded', function() {
         uvLight.innerHTML = `UV Light: ${data.current.uv}`;
     }
 
-    function forecastDataHandelr(forecastData){
-        for(let i = 1; i < 7; i++){
-            document.getElementById(`forecast-status-${i}`).innerHTML = forecastData.forecast.forecastday[i].hour[12].condition.text;
-            document.getElementById(`forecast-temp-${i}`).innerHTML = `${forecastData.forecast.forecastday[i].hour[12].temp_c} C`;
-            document.getElementById(`forecast-wind-speed-${i}`).innerHTML = `${forecastData.forecast.forecastday[i].hour[12].wind_kph} Km/H`;
-            document.getElementById(`forecast-date-${i}`).innerHTML = forecastData.forecast.forecastday[i].hour[12].time;
+    function forecastDataHandelr(data){
+        for(let i = 0; i < 3; i++){
+            document.getElementById(`forecast-status-${i}`).innerHTML = data.forecast.forecastday[i].hour[12].condition.text;
+            document.getElementById(`forecast-temp-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].temp_c} C`;
+            document.getElementById(`forecast-wind-speed-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].wind_kph} Km/H`;
+            document.getElementById(`forecast-date-${i}`).innerHTML = data.forecast.forecastday[i].hour[12].time;
         }
     }
 
-
-
-    const refresh = document.getElementById('refresh');
-    const city_buttons = document.querySelectorAll('.city-button');
-    const input = document.getElementById('input');
-    const input_button = document.getElementById('search');
-
-    let city_button = 'Amman';
-
-    city_buttons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            city_button = button.innerHTML;
-            getData();
-            forecastGetData();
-        })
-    })
- 
-
-
-
-    function forecastShowData(data){
-        for(let reNum = 1; reNum < 7; reNum++){
-            document.getElementById(`forecast-status-${reNum}`).innerHTML = data.forecast.forecastday[reNum].hour[12].condition.text;
-            document.getElementById(`forecast-weather-${reNum}`).innerHTML = `Temp ${data.forecast.forecastday[reNum].hour[12].temp_c} C`;
-            document.getElementById(`forecast-wind-speed-${reNum}`).innerHTML = `Wind ${data.forecast.forecastday[reNum].hour[12].wind_kph} Km/h`;
-            document.getElementById(`forecast-time-${reNum}`).innerHTML = data.forecast.forecastday[reNum].hour[12].time;  
-        }
-    }
-   
 })
