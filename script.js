@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const uvLight = document.getElementById('uv-light');
 
     let cityValueName = 'Amman';
+    let time12;
 
     // excuting the fetch function
 
@@ -90,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
         cityName.innerHTML = data.location.name;
         countryName.innerHTML = data.location.country;
         let [date, time] = data.location.localtime.split(' ');
-        cityTime.innerHTML = time;
+        convertTime(time);
+        cityTime.innerHTML = time12;
         date = date.replace(/-/g, '/');
         date = date.replace(/\b0/g, '');
         cityDate.innerHTML = date;
@@ -102,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         uvLight.innerHTML = `UV Light: ${data.current.uv}`;
         // Images
         dayNightIdentifier(time);
+        
     }
 
     function forecastDataHandelr(data){
@@ -129,5 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (numTime >= 6){
             cityDayStatus.setAttribute('src', 'imges/day/day.png')
         }
+    }
+    function convertTime(time){
+        let [hour, minutes] = time.split(':')
+        hour = parseInt(hour);
+        let period = hour >= 12 ? 'PM' : 'AM';
+        hour = hour % 12 || 12;
+        time12 = `${hour}:${minutes} ${period}`;
     }
 })
