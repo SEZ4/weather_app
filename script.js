@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let buttonChild = button.children[1];
             cityValueName = buttonChild.innerHTML;
             dataFetchCurrent();
-            dataFectchForecast();
+            //dataFectchForecast();
         })
     })
     searchCityButton.addEventListener('click', function() {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             cityValueName = searchCityInput.value;
             dataFetchCurrent();
-            dataFectchForecast();
+            //dataFectchForecast();
         }
     })
     searchCityInput.addEventListener('keydown', function(button) {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 cityValueName = searchCityInput.value;
                 dataFetchCurrent();
-                dataFectchForecast();
+                //dataFectchForecast();
             }
         } else {
             return;
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // fetch data from the API
 
     function dataFetchCurrent(){
-        fetch(`https://api.weatherapi.com/v1/current.json?key=${weatheAPIkey}&q=${cityValueName}`)
-            .then((response) => response.json)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=${weatheAPIkey}&q=${cityValueName}&aqi=no&alerts=no`)
+            .then((response) => response.json())
             .then((data) => currentDataOutput(data));
             //.catch(() => errorMessage());
     }
@@ -81,15 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function currentDataOutput(data){
         cityName.innerHTML = data.location.name;
-        document.getElementById('country').innerHTML = data.location.country;
-        document.getElementById('time').innerHTML = data.location.localtime;
-        document.getElementById('weather').innerHTML = `Temp ${data.current.temp_c} C`;
-        document.getElementById('status').innerHTML = data.current.condition.text;
-        document.getElementById('wind-dir').innerHTML = data.current.wind_dir;
-        document.getElementById('wind-speed').innerHTML = `${data.current.wind_kph} Km/H`;
-        document.getElementById('hu').innerHTML = data.current.humidity;
-        document.getElementById('uv').innerHTML = data.current.uv;
+        countryName.innerHTML = data.location.country;
+        cityTime.innerHTML = data.location.localtime;
+        currentTemp.innerHTML = `${data.current.temp_c} C`;
+        weatherStatus.innerHTML = data.current.condition.text;
+        windDir.innerHTML = data.current.wind_dir;
+        windSpeed.innerHTML = `${data.current.wind_kph} Km/H`;
+        humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+        uvLight.innerHTML = `UV Light: ${data.current.uv}`;
     }
+
+    dataFetchCurrent();
 
     const refresh = document.getElementById('refresh');
     const city_buttons = document.querySelectorAll('.city-button');
