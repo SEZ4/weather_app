@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let buttonChild = button.children[1];
             cityValueName = buttonChild.innerHTML;
             dataFetchCurrent();
-            //dataFectchForecast();
+            dataFectchForecast();
         })
     })
     searchCityButton.addEventListener('click', function() {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             cityValueName = searchCityInput.value;
             dataFetchCurrent();
-            //dataFectchForecast();
+            dataFectchForecast();
         }
     })
     searchCityInput.addEventListener('keydown', function(button) {
@@ -56,12 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 cityValueName = searchCityInput.value;
                 dataFetchCurrent();
-                //dataFectchForecast();
+                dataFectchForecast();
             }
         } else {
             return;
         }
     })
+    dataFetchCurrent();
+    dataFectchForecast();
 
     // fetch data from the API
 
@@ -71,11 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then((data) => currentDataOutput(data));
             //.catch(() => errorMessage());
     }
-    /*function dataFectchForecast(){
-        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${weatheAPIkey}&q=${city_button}&days=7&aqi=no&alerts=no`)
+    function dataFectchForecast(){
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${weatheAPIkey}&q=${cityValueName}&days=7&aqi=no&alerts=no`)
             .then((response) => response.json())
-            .then((forecastData) => forecastDataHandelr(forecastData));
-    } */ 
+            .then((data) => forecastDataHandelr(data));
+    }
 
     //  Output data to HTML
 
@@ -91,7 +93,16 @@ document.addEventListener('DOMContentLoaded', function() {
         uvLight.innerHTML = `UV Light: ${data.current.uv}`;
     }
 
-    dataFetchCurrent();
+    function forecastDataHandelr(forecastData){
+        for(let i = 1; i < 7; i++){
+            document.getElementById(`forecast-status-${i}`).innerHTML = forecastData.forecast.forecastday[i].hour[12].condition.text;
+            document.getElementById(`forecast-temp-${i}`).innerHTML = `${forecastData.forecast.forecastday[i].hour[12].temp_c} C`;
+            document.getElementById(`forecast-wind-speed-${i}`).innerHTML = `${forecastData.forecast.forecastday[i].hour[12].wind_kph} Km/H`;
+            document.getElementById(`forecast-date-${i}`).innerHTML = forecastData.forecast.forecastday[i].hour[12].time;
+        }
+    }
+
+
 
     const refresh = document.getElementById('refresh');
     const city_buttons = document.querySelectorAll('.city-button');
