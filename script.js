@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // You can steal the API key I don't mind :)
+    // You can steal the API key I don't mind (it's Free) :)
     const weatheAPIkey = 'fbb0702d04e54943826133310240308';
     // Defining Buttons and Inputs for citis Names
     const searchCityInput = document.getElementById('search-city-input');
