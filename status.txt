@@ -1,14 +1,13 @@
-Clear | night Times
-Sunny
-Overcast
-Patchy rain nearby
-Light rain
-Light rain shower
-cloudy
-Partly Cloudy
-Patchy rain nearby
+Clear | night Times / done
+Sunny / done
+Overcast / done
+Patchy rain nearby / done
+Light rain / done
+Light rain shower / done
+cloudy / done
+Partly Cloudy / done
 Moderate or heavy rain with thunder
-Mist
+Mist / done
 
 
 
