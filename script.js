@@ -169,9 +169,11 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         let info = windDirections[dir];
-        if (windDir) {
+        if (info) {
             windDirName = info.name;
             windDirImg.style.rotate = info.rotate;
+        } else{
+            console.log('Error With Wind Directions')
         }
     }
 })
