@@ -8,6 +8,7 @@ cloudy
 Partly Cloudy
 Patchy rain nearby
 Moderate or heavy rain with thunder
+Mist
 
 
 
