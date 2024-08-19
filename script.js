@@ -197,9 +197,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (info){
             weatherStatusImg.setAttribute('src', info.path);
             weatherStatusImg.setAttribute('alt', info.alt);
+            //document.getElementById('site-icon').setAttribute('href', info.path);
         } else {
             weatherStatusImg.setAttribute('src', conditions.Clear.path);
             weatherStatusImg.setAttribute('alt', 'Status Icon Not Found!');
+            //document.getElementById('site-icon').setAttribute('href', conditions.Cloudy.path);
         }
     }
 
