@@ -8,22 +8,5 @@ cloudy / done
 Partly Cloudy / done
 Moderate or heavy rain with thunder
 Mist / done
-
-
-
-North N
-North North East NNE
-North East NE
-East North East ENE
-East E
-East South East ESE
-South East SE 
-South South East SSE
-South S
-South South West SSW
-South West SW
-West South West WSW
-West W
-West North West WNW
-North West NW
-North North West NNW
+Light drizzle
+Fog / done

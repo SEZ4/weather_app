@@ -100,8 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
         date = date.replace(/\b0/g, '');
         cityDate.innerHTML = date;
 
+        let condition = data.current.condition.text;
         currentTemp.innerHTML = `${data.current.temp_c} C`;
-        weatherStatus.innerHTML = data.current.condition.text;
+        weatherStatus.innerHTML = condition;
 
         let windDataDir = data.current.wind_dir;
         windDiraction(windDataDir);
@@ -112,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         uvLight.innerHTML = `UV Light: ${data.current.uv}`;
         // Images
         dayNightIdentifier(time);
+        statusImgHandler(condition);
         
     }
 
@@ -176,6 +178,31 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Error With Wind Directions')
         }
     }
+    function statusImgHandler(condition){
+        const conditions = {
+            'Clear': { path: 'imges/status/clear.png', alt: 'Clear Wehter Icon'},
+            'Sunny': { path: 'imges/status/sunny.png', alt: 'Sunny Icon'},
+            'Overcast': { path: 'imges/status/overcast.png', alt: 'Overcast icon'},
+            'Patchy rain nearby' : { path: 'imges/status/Patchy rain nearby.png', alt: 'Patchy rain nearby icon'},
+            'Light rain': { path: 'imges/status/light-rain.png', alt: 'Light Rain icon'},
+            'Light rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
+            'Cloudy': { path: 'imges/status/cloudy.png', alt: 'Cloudy Icon'},
+            'Partly cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
+            'Partly Cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
+            'Mist': { path: 'imges/status/mist.png', alt: 'Mist icon'},
+            'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'}
+        };
+
+        let info = conditions[condition];
+        if (info){
+            weatherStatusImg.setAttribute('src', info.path);
+            weatherStatusImg.setAttribute('alt', info.alt);
+        } else {
+            weatherStatusImg.setAttribute('src', conditions.Clear.path);
+            weatherStatusImg.setAttribute('alt', 'Status Icon Not Found!');
+        }
+    }
+
 })
 
 
