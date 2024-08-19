@@ -193,7 +193,7 @@ nav > a > img{
     width: 100px;
     height: auto;
     margin-right: 20px;
-    transition: rotate 150ms ease-in-out;
+    transition: rotate 450ms ease-in-out;
 }
 
 .cityInfo-wind > div{

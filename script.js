@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let cityValueName = 'Amman';
     let time12;
+    let windDirName;
 
     // excuting the fetch function
 
@@ -88,18 +89,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function currentDataOutput(data){
         ErrorText.innerHTML = ''
+
         cityName.innerHTML = data.location.name;
         countryName.innerHTML = data.location.country;
+
         let [date, time] = data.location.localtime.split(' ');
         convertTime(time);
         cityTime.innerHTML = time12;
         date = date.replace(/-/g, '/');
         date = date.replace(/\b0/g, '');
         cityDate.innerHTML = date;
+
         currentTemp.innerHTML = `${data.current.temp_c} C`;
         weatherStatus.innerHTML = data.current.condition.text;
-        windDir.innerHTML = data.current.wind_dir;
+
+        let windDataDir = data.current.wind_dir;
+        windDiraction(windDataDir);
+        windDir.innerHTML = windDirName;
         windSpeed.innerHTML = `${data.current.wind_kph} Km/H`;
+
         humidity.innerHTML = `Humidity: ${data.current.humidity}`;
         uvLight.innerHTML = `UV Light: ${data.current.uv}`;
         // Images
@@ -140,4 +148,44 @@ document.addEventListener('DOMContentLoaded', function() {
         hour = hour % 12 || 12;
         time12 = `${hour}:${minutes} ${period}`;
     }
+    function windDiraction(dir){
+        const windDirections = {
+            'N': { name: 'North', rotate: '0deg' },
+            'NNE': { name: 'North North East', rotate: '22deg' },
+            'NE': { name: 'North East', rotate: '45deg' },
+            'ENE': { name: 'East North East', rotate: '67deg' },
+            'E': { name: 'East', rotate: '90deg' },
+            'ESE': { name: 'East South East', rotate: '112deg' },
+            'SE': { name: 'South East', rotate: '135deg' },
+            'SSE': { name: 'South South East', rotate: '157deg' },
+            'S': { name: 'South', rotate: '180deg' },
+            'SSW': { name: 'South South West', rotate: '202deg' },
+            'SW': { name: 'South West', rotate: '225deg' },
+            'WSW': { name: 'West South West', rotate: '247deg' },
+            'W': { name: 'West', rotate: '270deg' },
+            'WNW': { name: 'West North West', rotate: '292deg' },
+            'NW': { name: 'North West', rotate: '315deg' },
+            'NNW': { name: 'North North West', rotate: '337deg' }
+        };
+
+        let info = windDirections[dir];
+        if (windDir) {
+            windDirName = info.name;
+            windDirImg.style.rotate = info.rotate;
+        }
+    }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
