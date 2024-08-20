@@ -217,17 +217,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     CityButtonsImgID()
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
