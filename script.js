@@ -36,8 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     cityButtonsName.forEach(function(button) {
         button.addEventListener('click', function() {
-            let buttonChild = button.children[1];
-            cityValueName = buttonChild.innerHTML;
+            cityValueName = button.children[1].innerHTML;
             dataFetchCurrent();
             dataFectchForecast();
         })
@@ -204,7 +203,19 @@ document.addEventListener('DOMContentLoaded', function() {
             //document.getElementById('site-icon').setAttribute('href', conditions.Cloudy.path);
         }
     }
+    function CityButtonsImgID(){
+        let cityName;
+        let TimeData;
+        for(let i = 0; i < cityButtonsName.length; i++){
+            cityName = cityButtonsName[i].children[1].innerHTML;
+            fetch(`https://api.weatherapi.com/v1/current.json?key=${weatheAPIkey}&q=${cityName}&aqi=no&alerts=no`)
+            .then((response) => response.json())
+            .then((data) => TimeData = data)
 
+            console.log(TimeData);
+        }
+    }
+    CityButtonsImgID()
 })
 
 
