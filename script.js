@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let time12;
     let windDirName;
 
+
     // excuting the fetch function
 
     cityButtonsName.forEach(function(button) {
@@ -215,5 +216,4 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(TimeData);
         }
     }
-    CityButtonsImgID()
 })
