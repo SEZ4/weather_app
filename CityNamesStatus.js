@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let time = data.location.localtime.split(' ')[1];
                 let hour = parseInt(time.split(':')[0], 10);
                 const img = button.children[0];
-                if(hour >= 20 || hour < 6){
+                if(hour >= 19 || hour < 6){
                     img.setAttribute('src', 'imges/day/night.png');
                 } else{
                     img.setAttribute('src', 'imges/day/day.png');

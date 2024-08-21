@@ -122,12 +122,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function forecastDataHandelr(data){
-        for(let i = 0; i < 3; i++){
+        let condition = [undefined, undefined, undefined];
+        for(let i = 0; i < 3; i++){           
             document.getElementById(`forecast-status-${i}`).innerHTML = data.forecast.forecastday[i].hour[12].condition.text;
             document.getElementById(`forecast-temp-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].temp_c} C`;
             document.getElementById(`forecast-wind-speed-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].wind_kph} Km/H`;
             document.getElementById(`forecast-date-${i}`).innerHTML = data.forecast.forecastday[i].hour[12].time;
+            //Images
+            condition[i] = data.forecast.forecastday[i].hour[12].condition.text;         
         }
+        forecastStatusImgHandler(condition);
     }
 
     function errorMessage(){
@@ -152,11 +156,49 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     // Logical Operations
+    const arrowDirObject = {
+        'N': { name: 'North', rotate: '0deg' },
+        'NNE': { name: 'North North East', rotate: '22deg' },
+        'NE': { name: 'North East', rotate: '45deg' },
+        'ENE': { name: 'East North East', rotate: '67deg' },
+        'E': { name: 'East', rotate: '90deg' },
+        'ESE': { name: 'East South East', rotate: '112deg' },
+        'SE': { name: 'South East', rotate: '135deg' },
+        'SSE': { name: 'South South East', rotate: '157deg' },
+        'S': { name: 'South', rotate: '180deg' },
+        'SSW': { name: 'South South West', rotate: '202deg' },
+        'SW': { name: 'South West', rotate: '225deg' },
+        'WSW': { name: 'West South West', rotate: '247deg' },
+        'W': { name: 'West', rotate: '270deg' },
+        'WNW': { name: 'West North West', rotate: '292deg' },
+        'NW': { name: 'North West', rotate: '315deg' },
+        'NNW': { name: 'North North West', rotate: '337deg' }
+    };
+    const statusImgObject = {
+        'Clear': { path: 'imges/status/clear.png', alt: 'Clear Wehter Icon'},
+        'Sunny': { path: 'imges/status/sunny.png', alt: 'Sunny Icon'},
+        'Overcast': { path: 'imges/status/overcast.png', alt: 'Overcast icon'},
+        'Overcast ': { path: 'imges/status/overcast.png', alt: 'Overcast icon'},
+        'Patchy rain nearby' : { path: 'imges/status/Patchy rain nearby.png', alt: 'Patchy rain nearby icon'},
+        'Light rain': { path: 'imges/status/light-rain.png', alt: 'Light Rain icon'},
+        'Light drizzle': { path: 'imges/status/light-rain.png', alt: 'Light Dizzle icon'},
+        'Light rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
+        'Cloudy': { path: 'imges/status/cloudy.png', alt: 'Cloudy Icon'},
+        'Cloudy ': { path: 'imges/status/cloudy.png', alt: 'Cloudy Icon'},
+        'Partly cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
+        'Partly Cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
+        'Partly Cloudy ': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
+        'Mist': { path: 'imges/status/mist.png', alt: 'Mist icon'},
+        'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'},
+        'Thundery outbreaks in nearby': { path: 'imges/status/thunder.png', alt: 'thunder icon'},
+        'Moderate or heavy rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
+        'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon'}
+    };
 
     function dayNightIdentifier(time){
         let numTime = time.slice(0, 2);
         numTime = parseInt(numTime, 10);
-        if (numTime >= 20 || numTime < 6){
+        if (numTime >= 19 || numTime < 6){
             cityDayStatus.setAttribute('src', 'imges/day/night.png')
         } else if (numTime >= 6){
             cityDayStatus.setAttribute('src', 'imges/day/day.png')
@@ -170,26 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
         time12 = `${hour}:${minutes} ${period}`;
     }
     function windDiraction(dir){
-        const windDirections = {
-            'N': { name: 'North', rotate: '0deg' },
-            'NNE': { name: 'North North East', rotate: '22deg' },
-            'NE': { name: 'North East', rotate: '45deg' },
-            'ENE': { name: 'East North East', rotate: '67deg' },
-            'E': { name: 'East', rotate: '90deg' },
-            'ESE': { name: 'East South East', rotate: '112deg' },
-            'SE': { name: 'South East', rotate: '135deg' },
-            'SSE': { name: 'South South East', rotate: '157deg' },
-            'S': { name: 'South', rotate: '180deg' },
-            'SSW': { name: 'South South West', rotate: '202deg' },
-            'SW': { name: 'South West', rotate: '225deg' },
-            'WSW': { name: 'West South West', rotate: '247deg' },
-            'W': { name: 'West', rotate: '270deg' },
-            'WNW': { name: 'West North West', rotate: '292deg' },
-            'NW': { name: 'North West', rotate: '315deg' },
-            'NNW': { name: 'North North West', rotate: '337deg' }
-        };
-
-        let info = windDirections[dir];
+        let info = arrowDirObject[dir];
         if (info) {
             windDirName = info.name;
             windDirImg.style.rotate = info.rotate;
@@ -198,33 +221,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     function statusImgHandler(condition){
-        const conditions = {
-            'Clear': { path: 'imges/status/clear.png', alt: 'Clear Wehter Icon'},
-            'Sunny': { path: 'imges/status/sunny.png', alt: 'Sunny Icon'},
-            'Overcast': { path: 'imges/status/overcast.png', alt: 'Overcast icon'},
-            'Patchy rain nearby' : { path: 'imges/status/Patchy rain nearby.png', alt: 'Patchy rain nearby icon'},
-            'Light rain': { path: 'imges/status/light-rain.png', alt: 'Light Rain icon'},
-            'Light drizzle': { path: 'imges/status/light-rain.png', alt: 'Light Dizzle icon'},
-            'Light rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
-            'Cloudy': { path: 'imges/status/cloudy.png', alt: 'Cloudy Icon'},
-            'Partly cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
-            'Partly Cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
-            'Mist': { path: 'imges/status/mist.png', alt: 'Mist icon'},
-            'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'},
-            'Thundery outbreaks in nearby': { path: 'imges/status/thunder.png', alt: 'thunder icon'},
-            'Moderate or heavy rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
-            'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon'}
-        };
-
-        let info = conditions[condition];
+        let info = statusImgObject[condition];
         if (info){
             weatherStatusImg.setAttribute('src', info.path);
             weatherStatusImg.setAttribute('alt', info.alt);
             document.getElementById('site-icon').setAttribute('href', info.path);
         } else {
-            weatherStatusImg.setAttribute('src', conditions.Clear.path);
+            weatherStatusImg.setAttribute('src', statusImgObject.Clear.path);
             weatherStatusImg.setAttribute('alt', 'Status Icon Not Found!');
-            document.getElementById('site-icon').setAttribute('href', conditions.Cloudy.path);
+            document.getElementById('site-icon').setAttribute('href', statusImgObject.Cloudy.path);
         }
+    }
+    function forecastStatusImgHandler(condition){
+        for (let i = 0; i < 3; i++){
+            let info = statusImgObject[condition[i]];
+            if (info){
+                document.getElementById(`forecast-status-img-${i}`).setAttribute('src', info.path);
+                document.getElementById(`forecast-status-img-${i}`).setAttribute('alt', info.alt);
+            } else {
+                document.getElementById(`forecast-status-img-${i}`).setAttribute('src', statusImgObject.Cloudy.path);
+                document.getElementById(`forecast-status-img-${i}`).setAttribute('alt', 'Status Icon Not Found');
+            }
+        }               
     }
 })
