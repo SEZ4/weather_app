@@ -45,6 +45,7 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 16px;
+    border: 2px solid var(--bordersColor);
 }
 .popup > div{
     display: flex;
