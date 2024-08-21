@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Defining Misc info
     const humidity = document.getElementById('humidity');
     const uvLight = document.getElementById('uv-light');
+    // Defining Map button
+    const map = document.getElementById('popup-menu');
+    const closeMap = document.getElementById('popup-close-button');
 
     let cityValueName = 'Amman';
     let time12;
@@ -129,6 +132,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function errorMessage(){
         ErrorText.innerHTML = 'City Not Found!'
     }
+
+    // The Map
+
+    mapButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        map.classList.add('open-map');
+    })
+    closeMap.addEventListener('click', function(event) {
+        event.stopPropagation();
+        map.classList.remove('open-map');
+    })
+    document.addEventListener('click', function() {
+        map.classList.remove('open-map');
+    })
+    map.children[0].addEventListener('click', function(event) {
+        event.stopPropagation();
+    })
 
     // Logical Operations
 
