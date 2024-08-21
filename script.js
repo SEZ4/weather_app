@@ -205,12 +205,14 @@ document.addEventListener('DOMContentLoaded', function() {
             'Overcast': { path: 'imges/status/overcast.png', alt: 'Overcast icon'},
             'Patchy rain nearby' : { path: 'imges/status/Patchy rain nearby.png', alt: 'Patchy rain nearby icon'},
             'Light rain': { path: 'imges/status/light-rain.png', alt: 'Light Rain icon'},
+            'Light drizzle': { path: 'imges/status/light-rain.png', alt: 'Light Dizzle icon'},
             'Light rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
             'Cloudy': { path: 'imges/status/cloudy.png', alt: 'Cloudy Icon'},
             'Partly cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
             'Partly Cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
             'Mist': { path: 'imges/status/mist.png', alt: 'Mist icon'},
-            'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'}
+            'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'},
+            'Thundery outbreaks in nearby': { path: 'imges/status/thunder.png', alt: 'thunder icon'}
         };
 
         let info = conditions[condition];
