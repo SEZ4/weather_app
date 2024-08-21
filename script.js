@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // You can steal the API key I don't mind (it's Free) :)
-    const weatheAPIkey = 'fbb0702d04e54943826133310240308';
+    const weatherAPIkey = 'fbb0702d04e54943826133310240308';
     // Defining Buttons and Inputs for citis Names
     const searchCityInput = document.getElementById('search-city-input');
     const searchCityButton = document.getElementById('search-city-button');
@@ -77,16 +77,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // fetch data from the API
 
     function dataFetchCurrent(){
-        fetch(`https://api.weatherapi.com/v1/current.json?key=${weatheAPIkey}&q=${cityValueName}&aqi=no&alerts=no`)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIkey}&q=${cityValueName}&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((data) => currentDataOutput(data))
             .catch(() => errorMessage());
     }
     function dataFectchForecast(){
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatheAPIkey}&q=${cityValueName}&days=7&aqi=no&alerts=no`)
+        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatherAPIkey}&q=${cityValueName}&days=7&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((data) => forecastDataHandelr(data));
     }
+
 
     //  Output data to HTML
 
@@ -155,9 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function dayNightIdentifier(time){
         let numTime = time.slice(0, 2);
         numTime = parseInt(numTime, 10);
-        if (numTime >= 20){
-            cityDayStatus.setAttribute('src', 'imges/day/night.png')
-        } else if (numTime < 6){
+        if (numTime >= 20 || numTime < 6){
             cityDayStatus.setAttribute('src', 'imges/day/night.png')
         } else if (numTime >= 6){
             cityDayStatus.setAttribute('src', 'imges/day/day.png')
@@ -212,7 +211,9 @@ document.addEventListener('DOMContentLoaded', function() {
             'Partly Cloudy': {path: 'imges/status/partly-cloudy.png', alt: 'partly Cloudy Icon'},
             'Mist': { path: 'imges/status/mist.png', alt: 'Mist icon'},
             'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'},
-            'Thundery outbreaks in nearby': { path: 'imges/status/thunder.png', alt: 'thunder icon'}
+            'Thundery outbreaks in nearby': { path: 'imges/status/thunder.png', alt: 'thunder icon'},
+            'Moderate or heavy rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
+            'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon'}
         };
 
         let info = conditions[condition];
@@ -224,18 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
             weatherStatusImg.setAttribute('src', conditions.Clear.path);
             weatherStatusImg.setAttribute('alt', 'Status Icon Not Found!');
             document.getElementById('site-icon').setAttribute('href', conditions.Cloudy.path);
-        }
-    }
-    function CityButtonsImgID(){
-        let cityName;
-        let TimeData;
-        for(let i = 0; i < cityButtonsName.length; i++){
-            cityName = cityButtonsName[i].children[1].innerHTML;
-            fetch(`https://api.weatherapi.com/v1/current.json?key=${weatheAPIkey}&q=${cityName}&aqi=no&alerts=no`)
-            .then((response) => response.json())
-            .then((data) => TimeData = data)
-
-            console.log(TimeData);
         }
     }
 })
