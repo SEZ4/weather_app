@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(() => errorMessage());
     }
     function dataFectchForecast(){
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatherAPIkey}&q=${cityValueName}&days=7&aqi=no&alerts=no`)
+        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatherAPIkey}&q=${cityValueName}&days=3&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((data) => forecastDataHandelr(data));
     }
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let windDataDir = data.current.wind_dir;
         windDiraction(windDataDir);
         windDir.innerHTML = windDirName;
-        windSpeed.innerHTML = `${data.current.wind_kph} Km/H`;
+        windSpeed.innerHTML = `${data.current.wind_kph} Km/h`;
 
         humidity.innerHTML = `Humidity: ${data.current.humidity}`;
         uvLight.innerHTML = `UV Light: ${data.current.uv}`;
@@ -123,15 +123,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function forecastDataHandelr(data){
         let condition = [undefined, undefined, undefined];
+        let windArrow = [undefined, undefined, undefined];
         for(let i = 0; i < 3; i++){           
+            let [date, Time] = data.forecast.forecastday[i].hour[12].time.split(' ');
+            let windDataDir = data.forecast.forecastday[i].hour[12].wind_dir; 
             document.getElementById(`forecast-status-${i}`).innerHTML = data.forecast.forecastday[i].hour[12].condition.text;
             document.getElementById(`forecast-temp-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].temp_c} C`;
-            document.getElementById(`forecast-wind-speed-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].wind_kph} Km/H`;
-            document.getElementById(`forecast-date-${i}`).innerHTML = data.forecast.forecastday[i].hour[12].time;
+            document.getElementById(`forecast-wind-speed-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].wind_kph} Km/h`;
+
+            date = date.replace(/-/g, '/');
+            date = date.replace(/\b0/g, '');
+            document.getElementById(`forecast-date-${i}`).innerHTML = date;
             //Images
-            condition[i] = data.forecast.forecastday[i].hour[12].condition.text;         
+            condition[i] = data.forecast.forecastday[i].hour[12].condition.text;     
+            windArrow[i] = data.forecast.forecastday[i].hour[12].wind_dir;
+            console.log(windArrow);
         }
         forecastStatusImgHandler(condition);
+        forecastWindDiraction(windArrow);
     }
 
     function errorMessage(){
@@ -218,6 +227,17 @@ document.addEventListener('DOMContentLoaded', function() {
             windDirImg.style.rotate = info.rotate;
         } else{
             console.log('Error With Wind Directions')
+        }
+    }
+    function forecastWindDiraction(dir){
+        for (let i = 0; i < 3; i++){
+            let info = arrowDirObject[dir[i]];
+            console.log(info);
+            if (info){
+                document.getElementById(`forecast-wind-dir-img-${i}`).style.rotate = info.rotate;
+            } else{
+                console.log('Error With Forecast wind Directions');
+            }
         }
     }
     function statusImgHandler(condition){
