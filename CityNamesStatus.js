@@ -20,8 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     const img = button.children[0];
                     if(hour >= 19 || hour < 6){
                         img.setAttribute('src', 'imges/day/night.png');
+                        img.setAttribute('alt', 'Moon Image / Night')
                     } else{
                         img.setAttribute('src', 'imges/day/day.png');
+                        img.setAttribute('alt', 'Sun Image / day');
                     }
                 })
         })
