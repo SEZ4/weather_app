@@ -103,14 +103,14 @@ nav > a > img{
 .main{
     display: flex;
     width: 100%;
+    padding: 0 20px 0 10px;
 }
 .cityButton{
     display: flex;
-    flex-direction: column;
-    width: 30%;
-    max-width: 500px;
-    padding: 10px;
-    
+    flex-direction: column; 
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 10px 10px 0;
 }
 .cityButton-search{
     display: flex;
@@ -181,7 +181,7 @@ nav > a > img{
 .cityInfo{
     background-color: var(--cardBackgroundColor);
     border-radius: 16px;
-    width: 65%;
+    width: 100%;
 }
 .cityInfo-header{
     display: flex;

@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
             //Images
             condition[i] = data.forecast.forecastday[i].hour[12].condition.text;     
             windArrow[i] = data.forecast.forecastday[i].hour[12].wind_dir;
-            console.log(windArrow);
         }
         forecastStatusImgHandler(condition);
         forecastWindDiraction(windArrow);
@@ -232,7 +231,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function forecastWindDiraction(dir){
         for (let i = 0; i < 3; i++){
             let info = arrowDirObject[dir[i]];
-            console.log(info);
             if (info){
                 document.getElementById(`forecast-wind-dir-img-${i}`).style.rotate = info.rotate;
             } else{
