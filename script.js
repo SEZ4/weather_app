@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let windDirName;
 
 
-    // excuting the fetch function
+    // excuting the fetch data function
 
     cityButtonsName.forEach(function(button) {
         button.addEventListener('click', function() {
@@ -163,7 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
         event.stopPropagation();
     })
 
-    // Logical Operations
+    // Objects
+
     const arrowDirObject = {
         'N': { name: 'North', rotate: '0deg' },
         'NNE': { name: 'North North East', rotate: '22deg' },
@@ -202,6 +203,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'Moderate or heavy rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
         'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon'}
     };
+
+    // Logical Operations
 
     function dayNightIdentifier(time){
         let numTime = time.slice(0, 2);
