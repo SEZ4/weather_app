@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ErrorText.innerHTML = ''
 
         cityName.innerHTML = data.location.name;
+        document.getElementById('site-title').innerHTML = `The Weather | ${data.location.name}`;
         countryName.innerHTML = data.location.country;
 
         let [date, time] = data.location.localtime.split(' ');
