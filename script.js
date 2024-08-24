@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(() => errorMessage());
     }
     function dataFectchForecast(){
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${weatherAPIkey}&q=${cityValueName}&days=3&aqi=no&alerts=no`)
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${weatherAPIkey}&q=${cityValueName}&days=3&aqi=no&alerts=no`)
             .then((response) => response.json())
             .then((data) => forecastDataHandelr(data));
     }
@@ -127,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let windArrow = [undefined, undefined, undefined];
         for(let i = 0; i < 3; i++){           
             let [date, Time] = data.forecast.forecastday[i].hour[12].time.split(' ');
-            let windDataDir = data.forecast.forecastday[i].hour[12].wind_dir; 
             document.getElementById(`forecast-status-${i}`).innerHTML = data.forecast.forecastday[i].hour[12].condition.text;
             document.getElementById(`forecast-temp-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].temp_c} C`;
             document.getElementById(`forecast-wind-speed-${i}`).innerHTML = `${data.forecast.forecastday[i].hour[12].wind_kph} Km/h`;
