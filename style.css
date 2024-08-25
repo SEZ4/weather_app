@@ -93,6 +93,7 @@ body{
 
 nav{
     padding: 5px 10px;
+    margin: 10px 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -101,6 +102,20 @@ nav{
 nav > a > img{
     width: 50px;
     height: auto;
+    
+}
+nav > button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+nav > button > img{
+    width: 50px;
+    height: auto;
+    transition: rotate 750ms ease-in-out;
+}
+nav > button > img:hover{
+    rotate: 360deg;
 }
 
 .main{
