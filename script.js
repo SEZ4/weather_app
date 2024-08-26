@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchCityInput = document.getElementById('search-city-input');
     const searchCityButton = document.getElementById('search-city-button');
     const cityButtonsName = document.querySelectorAll('.city-button-name');
+    // Highlight
+    const buttonsHighlight = document.getElementById('background-highlight');
+    const buttonsWraper = document.querySelector('.cityButton');
     // Defining Error Handelrs
     const ErrorText = document.getElementById('search-error');
     // Defining Ctity Info header

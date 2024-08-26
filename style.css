@@ -186,6 +186,7 @@ nav > button > img:hover{
     width: 100%;
     max-width: 425px;
     height: 85px;
+    position: relative;
 }
 .cityButton > button > img{
     width: 65px;
@@ -195,6 +196,13 @@ nav > button > img:hover{
     color: var(--mainTextColor);
     font-size: 32px;
     margin: 0 auto;
+}
+#background-highlight{
+    position: absolute;
+    z-index: 0;
+    background-color: var(--bordersColor);
+    border-radius: 16px;
+    pointer-events: none;
 }
 
 .cityInfo{
