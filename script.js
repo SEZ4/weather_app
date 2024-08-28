@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Defining Buttons and Inputs for citis Names
     const searchCityInput = document.getElementById('search-city-input');
     const searchCityButton = document.getElementById('search-city-button');
-    const cityButtonsName = document.querySelectorAll('.city-button-name');
-    // Highlight
-    const buttonsHighlight = document.getElementById('background-highlight');
-    const buttonsWraper = document.querySelector('.cityButton');
+    const cityButtonsName = document.querySelectorAll('.city-button-name');;
     // Defining Error Handelrs
     const ErrorText = document.getElementById('search-error');
     // Defining Ctity Info header
@@ -30,9 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Defining Misc info
     const humidity = document.getElementById('humidity');
     const uvLight = document.getElementById('uv-light');
-    // Defining Map button
+    // Defining Map buttons
     const map = document.getElementById('popup-menu');
-    const closeMap = document.getElementById('popup-close-button');
+    const closeMapButton = document.getElementById('popup-close-button');
+    // Defining Settings buttons
 
     let cityValueName = 'Amman';
     let time12;
@@ -49,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
     searchCityButton.addEventListener('click', function() {
-        if(searchCityInput.vlaue === ''){
+        if(searchCityInput.value === ''){
             return;
         } else {
             cityValueName = searchCityInput.value;
@@ -149,13 +147,12 @@ document.addEventListener('DOMContentLoaded', function() {
         ErrorText.innerHTML = 'City Not Found!'
     }
 
-    // The Map
-
+    // The Map 
     mapButton.addEventListener('click', function(event) {
         event.stopPropagation();
         map.classList.add('open-map');
     })
-    closeMap.addEventListener('click', function(event) {
+    closeMapButton.addEventListener('click', function(event) {
         event.stopPropagation();
         map.classList.remove('open-map');
     })
