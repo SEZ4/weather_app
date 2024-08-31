@@ -401,11 +401,11 @@ footer > a{
     }
     .popup{
         width: 1000px;
-        height: 600;
+        height: 500px;
     }
     .popup > iframe{
         width: 800px;
-        height: 500px;
+        height: 450px;
     }
 }
 @media(max-width: 1300px){
