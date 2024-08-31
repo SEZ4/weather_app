@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let wraperSize = buttonsWraper.getBoundingClientRect();
         highLightAlign(buttonsize, wraperSize)
     }
+
+    /* window.addEventListener('resize', function() {
+        let buttonSize = buttons[0].getBoundingClientRect();
+        let wraperSize = portfolioButtonWraper.getBoundingClientRect();
+        
+    }) */
     
     firstButtonAlign();
 
@@ -37,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 highLight.style.width = '0px';
                 highLight.style.height = '0px';
+                highLight.style.left = '50%';
+                highLight.style.top = '100%';
             }
         } else {
             return;
@@ -48,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             highLight.style.width = '0px';
             highLight.style.height = '0px';
+            highLight.style.left = '50%';
+            highLight.style.top = '50%';
         }
     })
 

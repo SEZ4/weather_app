@@ -91,6 +91,8 @@ body{
     margin: 30px auto;
     border-radius: 16px;
     border: none;
+    width: 900px; 
+    height: 500px;
 }
 
 nav{
@@ -186,8 +188,7 @@ nav > button > img:hover{
     background-color: var(--cardBackgroundColor);
     border-radius: 16px;
     padding: 5px 10px;
-    width: 100%;
-    max-width: 425px;
+    width: 425px;
     height: 85px;
     position: relative;
 }
@@ -225,6 +226,7 @@ nav > button > img:hover{
 .cityInfo-header > div{
     display: flex;
     align-items: center;
+    text-align: start;
 }
 .cityInfo-header-info > img{
     width: 100px;
@@ -232,12 +234,12 @@ nav > button > img:hover{
 }
 .cityInfo-header-info > p{
     color: var(--mainTextColor);
-    font-size: 38px;
+    font-size: 34px;
     margin: 0 20px;
 }
 .cityInfo-header-cityName{
     color: var(--activeElements) !important;
-    font-size: 50px !important;
+    font-size: 46px !important;
 }
 .cityInfo-header-button > button{
     background-color: transparent;
@@ -388,6 +390,32 @@ footer > a{
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     color: var(--linksColor);
+}
+
+@media(max-width: 1440px){
+    .cityButton > button{
+        width: 400px;
+    }
+    .cityButton{
+        max-width: 415px;
+    }
+    .popup{
+        width: 1000px;
+        height: 600;
+    }
+    .popup > iframe{
+        width: 800px;
+        height: 500px;
+    }
+}
+@media(max-width: 1300px){
+    .cityButton > button{
+        width: 100%;
+        max-width: 350px;
+    }
+    .cityButton{
+        max-width: 365px;
+    }
 }
 
 

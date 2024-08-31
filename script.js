@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'NW': { name: 'North West', rotate: '315deg' },
         'NNW': { name: 'North North West', rotate: '337deg' }
     };
-    const statusImgObject = {
+    const statusImgObject = { // add 'shorter' to the object to short HTML element text
         'Clear': { path: 'imges/status/clear.png', alt: 'Clear Wehter Icon'},
         'Sunny': { path: 'imges/status/sunny.png', alt: 'Sunny Icon'},
         'Overcast': { path: 'imges/status/overcast.png', alt: 'Overcast icon'},
@@ -200,8 +200,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'Mist': { path: 'imges/status/mist.png', alt: 'Mist icon'},
         'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'},
         'Thundery outbreaks in nearby': { path: 'imges/status/thunder.png', alt: 'thunder icon'},
-        'Moderate or heavy rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon'},
-        'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon'}
+        'Moderate or heavy rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon', shorter: 'Moderate rain shower'},
+        'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon', shorter: 'Moderate rain with thunder'}
     };
 
     // Logical Operations
@@ -247,6 +247,11 @@ document.addEventListener('DOMContentLoaded', function() {
             weatherStatusImg.setAttribute('src', info.path);
             weatherStatusImg.setAttribute('alt', info.alt);
             document.getElementById('site-icon').setAttribute('href', info.path);
+            if (info.shorter){
+                weatherStatus.innerHTML = info.shorter;
+            } else{
+                return;
+            }
         } else {
             weatherStatusImg.setAttribute('src', statusImgObject.Clear.path);
             weatherStatusImg.setAttribute('alt', 'Status Icon Not Found!');
