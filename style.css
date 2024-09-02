@@ -419,9 +419,11 @@ footer > a{
     }
     .cityButton-buttons{
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .cityButton-buttons > button{
-        margin: 0 5px 0 5px;
+        margin: 5px 5px 5px 5px;
         width: 170px;
     }
     .cityButton-buttons > button > img{
