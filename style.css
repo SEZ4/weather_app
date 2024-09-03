@@ -464,6 +464,45 @@ footer > a{
         margin-top: 10px;
     }
 }
+@media(max-width: 810px){
+    .cityInfo-forecast > h2,
+    .cityInfo-wind > h2,
+    .cityInfo-current > h2{
+        font-size: 42px;
+    }
+    .cityInfo-current > div > p,
+    .cityInfo-wind > div > div > p,
+    .cityInfo-current > div > div > p,
+    .cityInfo-wind > div > p,
+    .cityInfo-misc > p{
+        font-size: 36px;
+    }
+    .cityInfo-wind > div > div > img,
+    .cityInfo-current > div > div > img{
+        width: 80px;
+    }
+    .map-popup{
+        align-items: end;
+        width: 100%;
+        height: 100vh;
+        transform: translateY(500px);
+        scale: 1;
+    }
+    .open-map{
+        transform: translateY(0);
+    }
+    .popup{
+        height: 500px;
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+        border: none;
+        border-top: 2px solid var(--bordersColor);
+    }
+    .popup > iframe{
+        height: 400px;
+        width: 650px;
+    }
+}
 
 
 
