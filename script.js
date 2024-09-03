@@ -201,7 +201,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'Fog': { path: 'imges/status/fog.png', alt: 'Fog icon'},
         'Thundery outbreaks in nearby': { path: 'imges/status/thunder.png', alt: 'thunder icon'},
         'Moderate or heavy rain shower': { path: 'imges/status/light rain shower.png', alt: 'light rain shower icon', shorter: 'Moderate rain shower'},
-        'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon', shorter: 'Moderate rain with thunder'}
+        'Moderate or heavy rain with thunder': { path: 'imges/status/thunder.png', alt: 'thunder icon', shorter: 'Moderate rain with thunder'},
+        'Patchy light drizzle': { path: 'imges/status/light-rain.png', alt: 'Light rain icon'}
     };
 
     // Logical Operations

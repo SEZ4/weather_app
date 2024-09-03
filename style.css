@@ -438,6 +438,32 @@ footer > a{
         max-width: 100%;
     }
 }
+@media(max-width: 1024px){
+    .popup{
+        width: 800px;
+    }
+    .popup > iframe{
+        width: 600px;
+    }
+    .cityInfo-header-info > p{
+        margin: 0 10px;
+        font-size: 28px;
+    }
+    .cityInfo-header-cityName{
+        font-size: 40px !important;
+    }
+}
+@media(max-width: 900px){
+    .cityInfo-header{
+        flex-direction: column;
+    }
+    .cityInfo-header-info > img{
+        width: 80px;
+    }
+    .cityInfo-header-button{
+        margin-top: 10px;
+    }
+}
 
 
 
