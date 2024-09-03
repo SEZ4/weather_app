@@ -350,6 +350,7 @@ nav > button > img:hover{
     align-items: center;
     border-radius: 16px;
     width: 100%;
+    border: 2px solid var(--activeElements);
 }
 .cityInfo-forecast-day > img{
     width: 80px;
