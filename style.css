@@ -111,20 +111,21 @@ nav > button{
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: none;
 }
-nav > button > img{
-    width: 50px;
-    height: auto;
-    transition: rotate 750ms ease-in-out;
-}
-nav > button > img:hover{
-    rotate: 360deg;
+nav > button > div{
+    width: 40px;
+    height: 4px;
+    background-color: var(--mainTextColor);
+    margin: 5px 0;
+    border-radius: 16px;
 }
 
 .main{
     display: flex;
     width: 100%;
     padding: 0 20px 0 10px;
+    position: relative;
 }
 .cityButton{
     display: flex;
@@ -490,6 +491,7 @@ footer > a{
     }
     .open-map{
         transform: translateY(0);
+        backdrop-filter: blur(0);
     }
     .popup{
         height: 500px;
@@ -500,7 +502,35 @@ footer > a{
     }
     .popup > iframe{
         height: 400px;
-        width: 650px;
+        width: 80.247vw;
+    }
+}
+@media(max-width: 600px){
+    nav > button{
+        display: block;
+    }
+    .main{
+        align-items: end;
+    }
+    .cityButton{
+        position: fixed;
+        z-index: 2;
+        background-color: var(--cardBackgroundColor);
+        border-left: 2px solid var(--bordersColor);
+        border-bottom: 2px solid var(--bordersColor);
+        border-radius: 16px 0 0 16px;
+        width: 80%;
+        transform: translate(8px, -83px);
+    }
+    .cityButton-search{
+        background-color: var(--mainColor);
+        width: 90%;
+    }
+    .cityButton-search > input{
+        background-color: var(--mainColor);
+    }
+    .cityButton-buttons >  button{
+        background-color: var(--mainColor);
     }
 }
 
