@@ -205,6 +205,7 @@ nav > button > img:hover{
     position: absolute;
     z-index: 0;
     background-color: var(--bordersColor);
+    border: 2px solid var(--activeElements);
     border-radius: 16px;
     pointer-events: none;
     transition: all 250ms ease-in-out;

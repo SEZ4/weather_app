@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     function highLightAlign(buttonSize, wraperSize){
+        highLight.style.opacity = '1';
         highLight.style.width = `${buttonSize.width}px`;
         highLight.style.height = `${buttonSize.height}px`;
         highLight.style.left = `${buttonSize.left - wraperSize.left}px`;
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 highLight.style.height = '0px';
                 highLight.style.left = '50%';
                 highLight.style.top = '100%';
+                highLight.style.opacity = '0';
             }
         } else {
             return;
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             highLight.style.height = '0px';
             highLight.style.left = '50%';
             highLight.style.top = '50%';
+            highLight.style.opacity = '0';
         }
     })
 
