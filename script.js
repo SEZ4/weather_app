@@ -264,6 +264,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (info){
                 document.getElementById(`forecast-status-img-${i}`).setAttribute('src', info.path);
                 document.getElementById(`forecast-status-img-${i}`).setAttribute('alt', info.alt);
+                if(info.shorter){
+                    document.getElementById(`forecast-status-${i}`).innerHTML = info.shorter;
+                }
             } else {
                 document.getElementById(`forecast-status-img-${i}`).setAttribute('src', statusImgObject.Cloudy.path);
                 document.getElementById(`forecast-status-img-${i}`).setAttribute('alt', 'Status Icon Not Found');
