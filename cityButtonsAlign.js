@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const citySearch = document.getElementById('search-city-input');
     const searchButton = document.getElementById('search-city-button');
     
-    
+    let outButton = buttons[0];
 
     function highLightAlign(buttonSize, wraperSize){
         highLight.style.opacity = '1';
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     buttons.forEach(function(button) {
         button.addEventListener('click', function(){
+            outButton = button;
             let buttonsize = button.getBoundingClientRect();
             let wraperSize = buttonsWraper.getBoundingClientRect();
             highLightAlign(buttonsize, wraperSize);
@@ -29,11 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
         highLightAlign(buttonsize, wraperSize)
     }
 
-    /* window.addEventListener('resize', function() {
-        let buttonSize = buttons[0].getBoundingClientRect();
-        let wraperSize = portfolioButtonWraper.getBoundingClientRect();
-        
-    }) */
+    window.addEventListener('resize', function() {
+        let buttonSize = outButton.getBoundingClientRect();
+        let wraperSize = buttonsWraper.getBoundingClientRect();
+        highLightAlign(buttonSize, wraperSize);
+    })
     
     firstButtonAlign();
 
