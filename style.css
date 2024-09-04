@@ -31,7 +31,7 @@ body{
     pointer-events: none;
     transform: translateY(-300px);
     scale: 0.1;
-    transition: backdrop-filter 500ms ease-in-out, transform 250ms ease-in-out, scale 250ms ease-in-out;
+    transition: backdrop-filter 500ms ease-in-out, transform 250ms ease-in-out, scale 250ms ease-in-out, opacity 250ms ease-in-out;
 }
 .open-map{
     scale: 1;
@@ -107,18 +107,39 @@ nav > a > img{
     width: 50px;
     height: auto;
 }
-nav > button{
+nav > div{
+    display: flex;
+}
+#cityButtons-menu-button{
     background-color: transparent;
     border: none;
     cursor: pointer;
     display: none;
+    margin: 0 5px;
 }
-nav > button > div{
+#cityButtons-menu-button > div{
     width: 40px;
     height: 4px;
     background-color: var(--mainTextColor);
     margin: 5px 0;
     border-radius: 16px;
+}
+.nav-hidden-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 64px;
+    width: 45px;
+    height: 45px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 100ms ease-in-out;
+    margin: 0 5px;
+}
+.nav-hidden-button > img{
+    width: 45px;
+    height: auto;
 }
 
 .main{
@@ -176,6 +197,7 @@ nav > button > div{
     text-align: center;
     font-weight: 600;
 }
+
 
 .cityButton-buttons >  button{
     margin: 5px 0;
@@ -504,10 +526,17 @@ footer > a{
         height: 400px;
         width: 80.247vw;
     }
+
 }
 @media(max-width: 600px){
-    nav > button{
+    #cityButtons-menu-button{
         display: block;
+    }
+    .nav-hidden-button{
+        display: flex;
+    }
+    .cityInfo-header-button > button{
+        display: none;
     }
     .main{
         align-items: end;
@@ -519,8 +548,12 @@ footer > a{
         border-left: 2px solid var(--bordersColor);
         border-bottom: 2px solid var(--bordersColor);
         border-radius: 16px 0 0 16px;
-        width: 80%;
-        transform: translate(8px, -83px);
+        width: 60%;
+        height: 100vh;
+        transform: translate(600px, -83px);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 350ms ease-in-out, opacity 150ms ease-in-out;
     }
     .cityButton-search{
         background-color: var(--mainColor);
@@ -531,6 +564,16 @@ footer > a{
     }
     .cityButton-buttons >  button{
         background-color: var(--mainColor);
+    }
+
+    .cityInfo-header-info{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .cityInfo-header-info > p{
+        margin: 10px;
     }
 }
 

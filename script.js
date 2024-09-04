@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const cityDate = document.getElementById('city-date');
     // Tools Button 
     const mapButton = document.getElementById('map-button');
+    const mapButton2 = document.getElementById('map-button2');
     const refreshButton = document.getElementById('refresh-button');
+    const refreshButton2 = document.getElementById('refresh-button2');
     // Defining Current temp info
     const currentTemp = document.getElementById('current-temp');
     const weatherStatusImg = document.getElementById('weather-status-img');
@@ -30,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Defining Map buttons
     const map = document.getElementById('popup-menu');
     const closeMapButton = document.getElementById('popup-close-button');
+    // Defining Buttons menu var's
+    const cityButtonsButton = document.getElementById('cityButtons-menu-button');
+    const cityButtonsMenu = document.querySelector('.cityButton');
     // Defining Settings buttons
 
     let cityValueName = 'Amman';
@@ -44,6 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
             cityValueName = button.children[1].innerHTML;
             dataFetchCurrent();
             dataFectchForecast();
+            setTimeout(() => {
+                cityButtonsMenu.style.removeProperty('transform');
+                cityButtonsMenu.style.removeProperty('opacity');
+                cityButtonsMenu.style.removeProperty('pointer-events');
+            }, 300)
         })
     })
     searchCityButton.addEventListener('click', function() {
@@ -53,6 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
             cityValueName = searchCityInput.value;
             dataFetchCurrent();
             dataFectchForecast();
+            setTimeout(() => {
+                cityButtonsMenu.style.removeProperty('transform');
+                cityButtonsMenu.style.removeProperty('opacity');
+                cityButtonsMenu.style.removeProperty('pointer-events');
+            }, 300)
         }
     })
     searchCityInput.addEventListener('keydown', function(button) {
@@ -63,12 +78,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 cityValueName = searchCityInput.value;
                 dataFetchCurrent();
                 dataFectchForecast();
+                            setTimeout(() => {
+                cityButtonsMenu.style.removeProperty('transform');
+                cityButtonsMenu.style.removeProperty('opacity');
+                cityButtonsMenu.style.removeProperty('pointer-events');
+            }, 300)
             }
         } else {
             return;
         }
     })
     refreshButton.addEventListener('click', function(){
+        dataFetchCurrent();
+        dataFectchForecast();
+    })
+    refreshButton2.addEventListener('click', function(){
         dataFetchCurrent();
         dataFectchForecast();
     })
@@ -152,6 +176,10 @@ document.addEventListener('DOMContentLoaded', function() {
         event.stopPropagation();
         map.classList.add('open-map');
     })
+    mapButton2.addEventListener('click', function(event) {
+        event.stopPropagation();
+        map.classList.add('open-map');
+    })
     closeMapButton.addEventListener('click', function(event) {
         event.stopPropagation();
         map.classList.remove('open-map');
@@ -160,6 +188,21 @@ document.addEventListener('DOMContentLoaded', function() {
         map.classList.remove('open-map');
     })
     map.children[0].addEventListener('click', function(event) {
+        event.stopPropagation();
+    })
+    // buttons menu
+    cityButtonsButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        cityButtonsMenu.style.transform = 'translate(8px, -83px)';
+        cityButtonsMenu.style.opacity = '1';
+        cityButtonsMenu.style.pointerEvents = 'auto';
+    })
+    document.addEventListener('click', function() {
+        cityButtonsMenu.style.removeProperty('transform');
+        cityButtonsMenu.style.removeProperty('opacity');
+        cityButtonsMenu.style.removeProperty('pointer-events');
+    })
+    cityButtonsMenu.addEventListener('click', function(event) {
         event.stopPropagation();
     })
 
