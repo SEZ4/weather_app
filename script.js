@@ -49,11 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cityValueName = button.children[1].innerHTML;
             dataFetchCurrent();
             dataFectchForecast();
-            setTimeout(() => {
-                cityButtonsMenu.style.removeProperty('transform');
-                cityButtonsMenu.style.removeProperty('opacity');
-                cityButtonsMenu.style.removeProperty('pointer-events');
-            }, 300)
+            searchCityInput.value = '';
         })
     })
     searchCityButton.addEventListener('click', function() {
@@ -63,11 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cityValueName = searchCityInput.value;
             dataFetchCurrent();
             dataFectchForecast();
-            setTimeout(() => {
-                cityButtonsMenu.style.removeProperty('transform');
-                cityButtonsMenu.style.removeProperty('opacity');
-                cityButtonsMenu.style.removeProperty('pointer-events');
-            }, 300)
         }
     })
     searchCityInput.addEventListener('keydown', function(button) {
@@ -78,11 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 cityValueName = searchCityInput.value;
                 dataFetchCurrent();
                 dataFectchForecast();
-                            setTimeout(() => {
-                cityButtonsMenu.style.removeProperty('transform');
-                cityButtonsMenu.style.removeProperty('opacity');
-                cityButtonsMenu.style.removeProperty('pointer-events');
-            }, 300)
             }
         } else {
             return;
@@ -144,7 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Images
         dayNightIdentifier(time);
         statusImgHandler(condition);
-        
+
+        setTimeout(() => {
+            cityButtonsMenu.style.removeProperty('transform');
+            cityButtonsMenu.style.removeProperty('opacity');
+            cityButtonsMenu.style.removeProperty('pointer-events');
+        }, 300)
     }
 
     function forecastDataHandelr(data){
