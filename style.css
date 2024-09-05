@@ -657,6 +657,17 @@ footer > a{
         text-align: center;
     }
 }
+@media(max-width: 350px){
+    .cityButton{
+        width: 70%;
+    }
+    footer > h2{
+        font-size: 26px;
+    }
+    footer > p{
+        font-size: 18px;
+    }
+}
 
 
 
