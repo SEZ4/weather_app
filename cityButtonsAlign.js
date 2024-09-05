@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
         let buttonSize = outButton.getBoundingClientRect();
         let wraperSize = buttonsWraper.getBoundingClientRect();
-        highLightAlign(buttonSize, wraperSize);
+        if(citySearch.value === ''){
+            highLightAlign(buttonSize, wraperSize);
+        } else {
+            return;
+        }
     })
     
     firstButtonAlign();
