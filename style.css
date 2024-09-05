@@ -574,9 +574,89 @@ footer > a{
     }
     .cityInfo-header-info > p{
         margin: 10px;
+        text-align: center;
     }
 }
-
+@media(max-width: 550px){
+    .cityInfo-forecast > h2,
+    .cityInfo-wind > h2,
+    .cityInfo-current > h2{
+        font-size: 38px;
+    }
+    .cityInfo-current > div > p,
+    .cityInfo-wind > div > div > p,
+    .cityInfo-current > div > div > p,
+    .cityInfo-wind > div > p,
+    .cityInfo-misc > p{
+        font-size: 32px;
+        text-align: center;
+    }
+    .cityInfo-wind > div > div > img,
+    .cityInfo-current > div > div > img{
+        width: 75px;
+        margin-right: 10px;
+    }
+    .cityInfo-forecast-day > img{
+        width: 65px;
+    }
+    .cityInfo-forecast-day > p{
+        color: #FFF;
+        font-size: 26px;
+        margin: 8px 0;
+        text-align: center;
+    }
+}
+@media(max-width: 450px){
+    .cityInfo-forecast > div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .cityInfo-forecast-day{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cityInfo-forecast-day > p{
+        margin: 10px;
+    }
+}
+@media(max-width: 400px){
+    .cityInfo-current > div,
+    .cityInfo-wind > div,
+    .cityInfo-wind > div > div,
+    .cityInfo-misc{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cityInfo-current > div > p,
+    .cityInfo-wind > div > div > p,
+    .cityInfo-current > div > div > p,
+    .cityInfo-wind > div > p,
+    .cityInfo-misc > p{
+        margin: 10px;
+    }
+    .popup > div > p{
+        display: none;
+    }
+    .popup > div{
+        text-align: center;
+    }
+    .popup > div > a{
+        width: max-content;
+        height: fit-content;
+        font-size: 16px;
+    }
+    .popup > div > button > img{
+        width: 40px;
+    }
+    .cityButton-search > p{
+        font-weight: 500;
+        font-size: 14px;
+    }
+    footer > h2{
+        text-align: center;
+    }
+}
 
 
 
