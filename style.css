@@ -667,6 +667,9 @@ footer > a{
     footer > p{
         font-size: 18px;
     }
+    footer > a{
+        font-size: 16px;
+    }
 }
 
 
